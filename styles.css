@@ -24,7 +24,7 @@ ion-icon {
   overflow: hidden;
   border-right: 3px solid;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 @keyframes typing {
