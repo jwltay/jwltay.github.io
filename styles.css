@@ -11,6 +11,42 @@ ion-icon {
   margin-top: 10vh;
 }
 
+.flicker {
+  -webkit-animation: flickerAnimation 5s infinite;
+  -moz-animation: flickerAnimation 5s infinite;
+  -o-animation: flickerAnimation 5s infinite;
+   animation: flickerAnimation 5s infinite;
+}
+
+@keyframes flickerAnimation {
+  50% { opacity: 1; }
+  53% { opacity: 0; }
+  55% { opacity: 1; }
+  58% { opacity: 0; }
+  60% { opacity: 1; }
+}
+@-o-keyframes flickerAnimation{
+  50% { opacity: 1; }
+  53% { opacity: 0; }
+  55% { opacity: 1; }
+  58% { opacity: 0; }
+  60% { opacity: 1; }
+}
+@-moz-keyframes flickerAnimation{
+  50% { opacity: 1; }
+  53% { opacity: 0; }
+  55% { opacity: 1; }
+  58% { opacity: 0; }
+  60% { opacity: 1; }
+}
+@-webkit-keyframes flickerAnimation{
+  50% { opacity: 1; }
+  53% { opacity: 0; }
+  55% { opacity: 1; }
+  58% { opacity: 0; }
+  60% { opacity: 1; }
+}
+
 .wrapper {
   height: 20vh;
   display: grid;
@@ -44,6 +80,7 @@ ion-icon {
   flex-wrap: wrap;
   font-family: 'IBM Plex Mono', monospace;
   justify-content: center;
+  overflow: hidden;
 }
 
 .tabs__label {
@@ -58,14 +95,14 @@ ion-icon {
 .tabs__content {
   order: 1;
   width: 100%;
-  border-bottom: 3px solid #dddddd;
   line-height: 1.5;
   font-size: 0.9em;
-  display: none;
+  height: 0;
+  opacity: 0;
 }
 
 .tabs__radio:checked+.tabs__label {
-  font-weight: bold;
+  font-weight: bolder;
   color: rgb(0, 112, 69);
   border-bottom: 2px solid rgb(0, 112, 69);
   transition: border-bottom 0.3s;
@@ -73,7 +110,9 @@ ion-icon {
 
 .tabs__radio:checked+.tabs__label+.tabs__content {
   display: initial;
-  /* transition: display 0.5s; */
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.7s;
 }
 
 a {
@@ -84,27 +123,13 @@ a:hover {
   color: rgb(0, 48, 29);
 }
 
-.title {
-	padding: 0;
-	margin: 0;
-	margin-left: 33.333%;
-	transform: translateX(-200%);
-	opacity: 0;
-	animation: slide-in-anim 1.5s ease-out forwards;
-}
-
-@keyframes slide-in-anim {
-	20% {
-		opacity: 0;
-	}
-	40% {
-		transform: translateX(-45%);
-	}
-	65% {
-		transform: translateX(-52%);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(-50%);
-	}
+.footer {
+  display: block;
+  border-top: 1px solid rgb(165, 165, 165);
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: center;
+  font-weight: lighter;
+  font-size: .8rem;
+  padding: 16px;
+  margin-top: 32px;
 }
